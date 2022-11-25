@@ -6,7 +6,10 @@
 $enable-negative-margins: true;
 
 // THEME COLORS
-$primary: rgb(75, 160, 64);
+$primary: rgb(0, 64, 142);
+
+// globals
+$enable-negative-margins: true;
 
 // custom font
 $font-family-base: "IBM Plex Sans";
@@ -46,7 +49,7 @@ $spacers: (
 
 // custom colors
 $custom-colors: (
-    "contrast": rgb(196, 62, 196),
+    "contrast": rgb(0, 119, 255),
     "star": rgb(255, 208, 0),
 );
 
@@ -55,5 +58,21 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 
 // removes preset colours
 $theme-colors: map-remove($theme-colors, "danger", "warning", "success", "info");
+
+@import '../node_modules/bootstrap/scss/bootstrap-utilities.scss';
+// $utilities: ();
+$custom-utilities: (
+  "rotate": (
+    property: transform,
+    class: rotate,
+    values: (
+      0: rotate(0deg),
+      1: rotate(5deg),
+      2: rotate(10deg),
+      3: rotate(15deg)
+    )
+  )
+);
+$utilities: map-merge($utilities, $custom-utilities);
 
 @import '../node_modules/bootstrap/scss/bootstrap.scss'
